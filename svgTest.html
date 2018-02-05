@@ -1,0 +1,192 @@
+<html>
+    <head>
+            <meta charset="utf-8">
+            <link href="styles/styles.css" rel="stylesheet" type="text/css">
+        <title>SVG Here</title>
+    </head>
+    <body>
+        
+         <!-- viewBox="0 0 100% 100%" preserveAspectRatio="xMidYMid meet" -->
+        <svg id="svg-container" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none">
+
+            <defs>
+                <linearGradient id="boxGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop id="svg-boxGradStop1" offset="0%" />
+                    <stop id="svg-boxGradStop2" offset="100%" />
+                </linearGradient>
+
+                <radialGradient id="sphereGradient01" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop id="svg-sphereGradStop1" offset="0%" />
+                    <stop id="svg-sphereGradStop2" offset="40%" />
+                    <stop id="svg-sphereGradStop1" offset="50%" style="stop-opacity:0.5;" />
+                    <stop id="svg-sphereGradStop3" offset="100%" />    
+                </radialGradient>
+
+                <radialGradient id="backSphereGradient01" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <!-- <stop id="svg-backSphereGradStop1" offset="0%" style="opacity:0;" /> -->
+                    <stop id="svg_backSphereGradStop1_1" offset="80%" />
+                    <stop id="svg_backSphereGradStop1_2" offset="100%" />    
+                </radialGradient>
+
+                <radialGradient id="backSphereGradient02" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                    <stop id="svg_backSphereGradStop2_1" offset="80%" />
+                    <stop id="svg_backSphereGradStop2_2" offset="100%" />    
+                </radialGradient>
+
+            </defs>
+            
+            
+            <!-- Layers determined by order of code; element at the top of code is the bottom layer -->
+            <rect id="svg-rect" x="0" y="0" width="100%" height="100%" fill="url(#boxGradient)" /> 
+            <!-- d= "MstartX startY Q curveX curveY endX endY" -->
+            <!-- <path id="firstMotionPath" d="M100 200 Q 350 -90 600 200" stroke="black" fill="transparent"/> -->
+
+            <path id="animMotionPath" d="M 400 150 C 200 300 350 400 450 200 A 50 50 0 1 1 700 300 Q 650 400 500 400 C 350 400 450 300 550 250 C 750 150 550 50 400 150" stroke="transparent" fill="transparent"/>
+
+
+            <!-- START BACKCIRCLES -->
+            <g>
+                <circle id="svg-backCircle_01" cx="-400" cy="-400" r="1000" fill="url(#backSphereGradient01)"/>
+                <animateTransform id="backCircleAnim_01_1" attributeName="transform"
+                        type="rotate"
+                        from="0 -400 -400"
+                        to="360 -100 -100"
+                        begin="0s; backCircleAnim_01_2.end"
+                        dur="15s"
+                        
+                /> 
+                <animateTransform id="backCircleAnim_01_2" attributeName="transform"
+                        type="rotate"
+                        from="0 -100 -100"
+                        to="360 -400 -400"
+                        begin="backCircleAnim_01_1.end"
+                        dur="15s"
+                        
+                />  
+            </g>
+
+            <g>
+                <circle id="svg-backCircle_02" cx="1500" cy="1300" r="1000" fill="url(#backSphereGradient02)"/>
+                <animateTransform id="backCircleAnim_02_1" attributeName="transform"
+                        type="rotate"
+                        from="0 1500 1300"
+                        to="360 1300 1100"
+                        begin="0s; backCircleAnim_02_2.end"
+                        dur="15s"
+                        
+                /> 
+                <animateTransform id="backCircleAnim_02_2" attributeName="transform"
+                        type="rotate"
+                        from="0 1300 1100"
+                        to="360 1500 1300"
+                        begin="backCircleAnim_02_1.end"
+                        dur="15s"
+                        
+                />   
+            </g>
+            <!-- END BACKCIRCLES -->
+
+            <!-- START FORECIRCLES -->
+            <g id="svg-outerGroup" transform="translate(0 0)">
+    
+
+                <circle id="svg-bigCircle_01" cx="" cy="" r="20" fill="url(#sphereGradient01)">
+                    <animateTransform id="bigAnim_01_1" attributeName="transform"
+                        type="scale"
+                        additive="sum"
+                        from="0.5 0.5"
+                        to="2 2"
+                        begin="0s; bigAnim_01_2.end"
+                        dur="2s"
+                    /> 
+                    <animateTransform id="bigAnim_01_2" attributeName="transform"
+                        type="scale"
+                        additive="sum"
+                        from="2 2"
+                        to="0.5 0.5"
+                        begin="bigAnim_01_1.end"
+                        dur="1s"
+                    />    
+                </circle>
+
+                <!-- <circle id="svg-circle" cx="20" cy="-10" r="10" fill="url(#sphereGradient01)" /> -->
+                <circle id="svg-smallCircle_01" cx="" cy="" r="10" fill="url(#sphereGradient01)">
+                    <animateTransform id="smallAnim_01_1" attributeName="transform"
+                        type="translate"
+                        from="30 -30"
+                        to="-60 60"
+                        begin="0s; smallAnim_01_4.end"
+                        dur="1s"
+                    />
+                    <animateTransform id="smallAnim_01_2" attributeName="transform"
+                        type="translate"
+                        from="-60 60"
+                        to="-30 -50"
+                        begin="smallAnim_01_1.end"
+                        dur="1s"
+                    />
+                    <animateTransform id="smallAnim_01_3" attributeName="transform"
+                        type="translate"
+                        from="-30 -50"
+                        to="0 50"
+                        begin="smallAnim_01_2.end"
+                        dur="1s"
+                    />
+                    <animateTransform id="smallAnim_01_4" attributeName="transform"
+                        type="translate"
+                        from="0 50"
+                        to="30 -30"
+                        begin="smallAnim_01_3.end"
+                        dur="1s"
+                    />
+                </circle>
+
+                <circle id="svg-smallCircle_02" cx="" cy="" r="10" fill="url(#sphereGradient01)">
+                    <animateTransform id="smallAnim_02_1" attributeName="transform"
+                        type="translate"
+                        from="-30 30"
+                        to="60 -60"
+                        begin="0s; smallAnim_02_4.end"
+                        dur="1s"
+                    />
+                    <animateTransform id="smallAnim_02_2" attributeName="transform"
+                        type="translate"
+                        from="60 -60"
+                        to="30 50"
+                        begin="smallAnim_02_1.end"
+                        dur="1s"
+                    />
+                    <animateTransform id="smallAnim_02_3" attributeName="transform"
+                        type="translate"
+                        from="30 50"
+                        to="0 -50"
+                        begin="smallAnim_02_2.end"
+                        dur="1s"
+                    />
+                    <animateTransform id="smallAnim_02_4" attributeName="transform"
+                        type="translate"
+                        from="0 -50"
+                        to="-30 30"
+                        begin="smallAnim_02_3.end"
+                        dur="1s"
+                    />
+                </circle>
+
+                <animateMotion dur="8s" repeatCount="indefinite">
+                    <mpath xlink:href="#animMotionPath" />
+                </animateMotion>
+                
+            </g>
+            <!-- END FORECIRCLES -->
+
+            <a xlink:href="index.html">
+                <text id="svg_backText" x="20" y="20">Go Back</text>
+            </a>
+            
+        </svg>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="scripts/svgScripts.js"></script>
+    </body>
+</html>
