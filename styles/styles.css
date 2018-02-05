@@ -97,3 +97,7 @@ li {
     cursor: default;
 }
 
+#svg-smallCircles {
+    transform: scale(2, 2);
+}
+

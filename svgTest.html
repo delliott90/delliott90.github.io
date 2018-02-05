@@ -88,90 +88,92 @@
             <!-- END BACKCIRCLES -->
 
             <!-- START FORECIRCLES -->
-            <g id="svg-outerGroup" transform="translate(0 0)">
+            <g id="svg-outerGroup">
     
-
                 <circle id="svg-bigCircle_01" cx="" cy="" r="20" fill="url(#sphereGradient01)">
                     <animateTransform id="bigAnim_01_1" attributeName="transform"
                         type="scale"
                         additive="sum"
-                        from="0.5 0.5"
-                        to="2 2"
+                        from="2 2"
+                        to="4 4"
                         begin="0s; bigAnim_01_2.end"
                         dur="2s"
                     /> 
                     <animateTransform id="bigAnim_01_2" attributeName="transform"
                         type="scale"
                         additive="sum"
-                        from="2 2"
-                        to="0.5 0.5"
+                        from="4 4"
+                        to="2 2"
                         begin="bigAnim_01_1.end"
                         dur="1s"
                     />    
                 </circle>
 
-                <!-- <circle id="svg-circle" cx="20" cy="-10" r="10" fill="url(#sphereGradient01)" /> -->
-                <circle id="svg-smallCircle_01" cx="" cy="" r="10" fill="url(#sphereGradient01)">
-                    <animateTransform id="smallAnim_01_1" attributeName="transform"
-                        type="translate"
-                        from="30 -30"
-                        to="-60 60"
-                        begin="0s; smallAnim_01_4.end"
-                        dur="1s"
-                    />
-                    <animateTransform id="smallAnim_01_2" attributeName="transform"
-                        type="translate"
-                        from="-60 60"
-                        to="-30 -50"
-                        begin="smallAnim_01_1.end"
-                        dur="1s"
-                    />
-                    <animateTransform id="smallAnim_01_3" attributeName="transform"
-                        type="translate"
-                        from="-30 -50"
-                        to="0 50"
-                        begin="smallAnim_01_2.end"
-                        dur="1s"
-                    />
-                    <animateTransform id="smallAnim_01_4" attributeName="transform"
-                        type="translate"
-                        from="0 50"
-                        to="30 -30"
-                        begin="smallAnim_01_3.end"
-                        dur="1s"
-                    />
-                </circle>
+                <!-- Outer group is needed to apply scale transform otherwise it screws up the translation -->
+                <g id="svg-smallCircles">
 
-                <circle id="svg-smallCircle_02" cx="" cy="" r="10" fill="url(#sphereGradient01)">
-                    <animateTransform id="smallAnim_02_1" attributeName="transform"
-                        type="translate"
-                        from="-30 30"
-                        to="60 -60"
-                        begin="0s; smallAnim_02_4.end"
-                        dur="1s"
-                    />
-                    <animateTransform id="smallAnim_02_2" attributeName="transform"
-                        type="translate"
-                        from="60 -60"
-                        to="30 50"
-                        begin="smallAnim_02_1.end"
-                        dur="1s"
-                    />
-                    <animateTransform id="smallAnim_02_3" attributeName="transform"
-                        type="translate"
-                        from="30 50"
-                        to="0 -50"
-                        begin="smallAnim_02_2.end"
-                        dur="1s"
-                    />
-                    <animateTransform id="smallAnim_02_4" attributeName="transform"
-                        type="translate"
-                        from="0 -50"
-                        to="-30 30"
-                        begin="smallAnim_02_3.end"
-                        dur="1s"
-                    />
-                </circle>
+                    <circle id="svg-smallCircle_01" cx="" cy="" r="10" fill="url(#sphereGradient01)">
+                        <animateTransform id="smallAnim_01_1" attributeName="transform"
+                            type="translate"
+                            from="70 -70"
+                            to="-70 70"
+                            begin="0s; smallAnim_01_4.end"
+                            dur="1s"
+                        />
+                        <animateTransform id="smallAnim_01_2" attributeName="transform"
+                            type="translate"
+                            from="-70 70"
+                            to="-90 -70"
+                            begin="smallAnim_01_1.end"
+                            dur="1s"
+                        />
+                        <animateTransform id="smallAnim_01_3" attributeName="transform"
+                            type="translate"
+                            from="-90 -70"
+                            to="0 70"
+                            begin="smallAnim_01_2.end"
+                            dur="1s"
+                        />
+                        <animateTransform id="smallAnim_01_4" attributeName="transform"
+                            type="translate"
+                            from="0 70"
+                            to="70 -70"
+                            begin="smallAnim_01_3.end"
+                            dur="1s"
+                        />  
+                    </circle>
+
+                    <circle id="svg-smallCircle_02" cx="" cy="" r="10" fill="url(#sphereGradient01)">
+                        <animateTransform id="smallAnim_02_1" attributeName="transform"
+                            type="translate"
+                            from="-30 30"
+                            to="60 -60"
+                            begin="0s; smallAnim_02_4.end"
+                            dur="1s"
+                        />
+                        <animateTransform id="smallAnim_02_2" attributeName="transform"
+                            type="translate"
+                            from="60 -60"
+                            to="30 50"
+                            begin="smallAnim_02_1.end"
+                            dur="1s"
+                        />
+                        <animateTransform id="smallAnim_02_3" attributeName="transform"
+                            type="translate"
+                            from="30 50"
+                            to="0 -50"
+                            begin="smallAnim_02_2.end"
+                            dur="1s"
+                        />
+                        <animateTransform id="smallAnim_02_4" attributeName="transform"
+                            type="translate"
+                            from="0 -50"
+                            to="-30 30"
+                            begin="smallAnim_02_3.end"
+                            dur="1s"
+                        />
+                    </circle>
+                </g>
 
                 <animateMotion dur="8s" repeatCount="indefinite">
                     <mpath xlink:href="#animMotionPath" />
